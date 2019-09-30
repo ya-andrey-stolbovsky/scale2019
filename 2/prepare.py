@@ -9,8 +9,10 @@ import boto3
 
 REPOSITORY_DIR = '~/lab'
 LAB_DIR = REPOSITORY_DIR + '/2'
-ARCHIVE_NAME = '~/lab.zip'
+ARCHIVE_ROOT_DIR = '~'
+ARCHIVE_NAME = '~/lab'
 FUNCTION_ZIP_FILE_NAME = 'lab.zip'
+FUNCTION_ZIP_FILE_PATH = ARCHIVE_NAME + '.zip'
 SERVICE_ACCOUNT_NAME = 'ymq-serverless-demo'
 BUCKET_NAME = 'github-bot-bucket-2'
 FUNCTION_NAME = 'github-bot'
@@ -26,11 +28,12 @@ def pull_repository():
     subprocess.run(['git', 'clone', REPO_URL, os.path.expanduser(REPOSITORY_DIR)])
 
 def create_archive():
-    archive_path = os.path.expanduser(ARCHIVE_NAME)
+    archive_path = os.path.expanduser(FUNCTION_ZIP_FILE_PATH)
     if os.path.exists(archive_path):
         os.remove(archive_path)
-    path = os.path.expanduser(LAB_DIR)
-    shutil.make_archive(path, 'zip', root_dir=path)
+    base_name = os.path.expanduser(ARCHIVE_NAME)
+    root_dir = os.path.expanduser(LAB_DIR)
+    shutil.make_archive(base_name, 'zip', root_dir=root_dir)
 
 def call_yc_with_json_format(args_list):
     args = list(args_list)
