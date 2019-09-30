@@ -1,0 +1,5 @@
+{
+    "access_key_id": "",
+    "secret_access_key": "",
+    "slack_webhook": "{{slack_webhook}}"
+}
