@@ -6,7 +6,7 @@ def http_handler(event, context):
     send_to_slack(message=json.loads(event['body']))
 
     # --- Uncomment this ---
-    # queue_url = <put your queue url here>
+    # queue_url = "<put your queue url here>"
     # send_to_ymq_queue(queue_url, event['body'])
 
     return make_response()

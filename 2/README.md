@@ -8,7 +8,7 @@
 Для иллюстрации возможных проблем в код бота добавлен механизм failure injection, который имитирует сбой 50% запросов к Slack.
 
 Проверим, как это работает:
-1. Откройте в новой вкладке [канал в Slack]().
+1. Откройте в новой вкладке [канал в Slack](https://app.slack.com/client/TNPPE20KT/CNJMUN9MZ).
 1. Откройте в новой вкладке [задачу в Github](https://github.com/Scale2019TestAccount2/hello-world/issues/1).
 2. Добавьте несколько комментариев.
 
@@ -63,7 +63,7 @@ def http_handler(event, context):
 
 ## Проверка результата
 Проверим, что надёжность повысилась:
-1. Откройте в новой вкладке [канал в Slack]().
+1. Откройте в новой вкладке [канал в Slack](https://app.slack.com/client/TNPPE20KT/CNJMUN9MZ).
 1. Откройте в новой вкладке [задачу в Github](https://github.com/Scale2019TestAccount2/hello-world/issues/1).
 2. Добавьте несколько комментариев.
 
