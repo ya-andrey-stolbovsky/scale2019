@@ -142,7 +142,7 @@ def delete_objects_from_bucket(bucket_name, access_key_id, secret_access_key):
 
 def upload_archive(access_key_id, secret_access_key):
     client = make_s3_client(access_key_id, secret_access_key)
-    client.put_object(Body=open(os.path.expanduser(ARCHIVE_NAME), 'rb'), Bucket=BUCKET_NAME, Key=FUNCTION_ZIP_FILE_NAME)
+    client.put_object(Body=open(os.path.expanduser(FUNCTION_ZIP_FILE_PATH), 'rb'), Bucket=BUCKET_NAME, Key=FUNCTION_ZIP_FILE_NAME)
 
 def upload_new_function_version():
     resp = call_yc_with_json_format(
