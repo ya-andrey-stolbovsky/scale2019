@@ -35,6 +35,8 @@ def call_yc_with_json_format(args_list):
     args = list(args_list)
     args.append('--format')
     args.append('json')
+    args.append('--profile')
+    args.append('ymq')
     process = subprocess.run(args, capture_output=True)
     #print('Run {}\nstderr:\n{}\nstdout:{}'.format(args, process.stderr, process.stdout))
     if process.stdout:
