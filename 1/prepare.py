@@ -7,7 +7,8 @@ import shutil
 import json
 import boto3
 
-REPOSITORY_DIR = '~/scale2019/1'
+REPOSITORY_DIR = '~/lab'
+LAB_DIR = REPOSITORY_DIR + '/1'
 ARCHIVE_NAME = '~/lab.zip'
 FUNCTION_ZIP_FILE_NAME = 'lab.zip'
 SERVICE_ACCOUNT_NAME = 'ymq-serverless-demo'
@@ -22,13 +23,13 @@ def delete_directory(path):
 
 def pull_repository():
     delete_directory(REPOSITORY_DIR)
-    subprocess.run(['svn', 'checkout', REPO_URL, os.path.expanduser(REPOSITORY_DIR)])
+    subprocess.run(['git', 'clone', REPO_URL, os.path.expanduser(REPOSITORY_DIR)])
 
 def create_archive():
     archive_path = os.path.expanduser(ARCHIVE_NAME)
     if os.path.exists(archive_path):
         os.remove(archive_path)
-    path = os.path.expanduser(REPOSITORY_DIR)
+    path = os.path.expanduser(LAB_DIR)
     shutil.make_archive(path, 'zip', root_dir=path)
 
 def call_yc_with_json_format(args_list):
@@ -56,7 +57,7 @@ def create_static_creds():
     return access_key_id, secret_access_key
 
 def patch_config_with_keys(access_key_id, secret_access_key):
-    path = os.path.join(os.path.expanduser(REPOSITORY_DIR), 'config')
+    path = os.path.join(os.path.expanduser(LAB_DIR), 'config')
     #print('Open config: {}'.format(path))
     conf = json.load(open(path, 'r'))
     conf['access_key_id'] = access_key_id
