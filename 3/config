@@ -1,5 +1,5 @@
 {
     "access_key_id": "",
     "secret_access_key": "",
-    "slack_webhook": "{{slack_webhook}}"
+    "slack_webhook": "https://hooks.slack.com/services/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"
 }
