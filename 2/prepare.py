@@ -7,7 +7,7 @@ import shutil
 import json
 import boto3
 
-REPOSITORY_DIR = '~/scale2019/1'
+REPOSITORY_DIR = '~/scale2019/2'
 ARCHIVE_NAME = '~/lab.zip'
 FUNCTION_ZIP_FILE_NAME = 'lab.zip'
 SERVICE_ACCOUNT_NAME = 'ymq-serverless-demo'
